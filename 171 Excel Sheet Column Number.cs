@@ -1,6 +1,8 @@
 public class Solution {
     public int GetValue(char x){
-        int y = 0;
+        
+        return (Convert.ToInt32(x) - 64);//KeyCode for A equals 65
+        /*int y = 0;
         switch (x){
             case 'A':
                 y = 1;
@@ -84,7 +86,7 @@ public class Solution {
                 y = 0;
                 break;
         }
-        return y;
+        return y;*/
     }
     public int TitleToNumber(string s) {
         char[] a = s.Trim().ToCharArray();
