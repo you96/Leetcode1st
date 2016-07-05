@@ -1,0 +1,80 @@
+public class Solution {
+    public string Convert(string s, int numRows) {
+        string result = "";
+        if(numRows == 1)
+            result = s;
+        else {
+            char[] sca = s.Trim().ToCharArray();
+                int slength = s.Trim().Length;
+                int numCols = slength / (2 * numRows - 2);
+                int numset = slength / (2 * numRows - 2);
+                numCols *= (2 * numRows - 2);
+                int a = slength % (2 * numRows - 2);
+                if (a == 0) { }
+                else if (a > numRows)
+                    numCols += (a - numRows + 1);
+                else
+                    numCols += 1;
+                for (int i = 0; i < numRows; i++)
+                {
+                    if ((i == 0 || i == numRows - 1) && i < slength)
+                    {
+                        for (int j = i; j < slength; j += (2 * numRows - 2))
+                        {
+                            result += sca[j].ToString();
+                        }
+                    }
+                    else
+                    {
+                        for (int j = i; j < slength; j += (2 * numRows - 2))
+                        {
+                            result += sca[j].ToString();
+                            int bh = j / (2 * numRows - 2);
+                            bh = (bh * 2 + 1) * (2 * numRows - 2) - j;
+                            if (bh < slength)
+                                result += sca[bh].ToString();
+                        }
+                    }
+                }
+            }
+            return result;
+        //TLE problem.
+        /*string result = "";
+        if(numRows == 1)
+            result = s;
+        else {
+            char[] sca = s.Trim().ToCharArray();
+            int slength = s.Trim().Length;
+            int numCols = slength / (2 * numRows - 2);
+            numCols *= (2 * numRows - 2);
+            int  a = slength % (2 * numRows - 2);
+            if(a == 0){}
+            else if(a > numRows)
+                numCols += (a - numRows + 1);
+            else
+                numCols += 1;
+            char[,] resultarray = new char[numRows, numCols];
+            int sposition = 0;
+            for(int j = 0; j < numCols; j++) {
+                for(int i = 0; i < numRows; i++) {
+                    if(j % (numRows - 1) != 0 && j % (numRows - 1) + i != numRows - 1) {
+                        resultarray[i,j] = ' ';
+                    } else {
+                        if(sposition < slength) {
+                            resultarray[i,j] = sca[sposition];
+                            sposition++;
+                        } else {
+                            resultarray[i,j] = ' ';
+                        }
+                    }
+                }
+            }
+            for(int i = 0; i < numRows; i++)
+                for(int j = 0; j < numCols; j++)
+                    result += resultarray[i,j].ToString();
+            result = result.Replace(" ", "");
+        }
+        return result;
+        */
+    }
+}
