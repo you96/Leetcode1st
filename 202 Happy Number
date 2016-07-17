@@ -1,0 +1,25 @@
+public class Solution {
+    int count = 0;
+    public bool IsHappy(int n) {
+        count++;
+        bool result = false;
+        int value = n;
+        if (CalculateNumber(value) == 1) {
+            result = true;
+        } else {
+            if(count < 100)
+                result = IsHappy(CalculateNumber(value));
+            else
+                result = false;
+        }
+        return result;
+    }
+    public int CalculateNumber(int n) {
+        int result = 0;
+        for(int i = 0; i < n.ToString().Length; i++) {
+            int j = int.Parse(n.ToString().Substring(i, 1));
+            result += j * j;
+        }
+        return result;
+    }
+}
