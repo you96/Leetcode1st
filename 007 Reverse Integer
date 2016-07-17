@@ -1,0 +1,20 @@
+public class Solution {
+    public int Reverse(int x) {
+        int result = 0;
+        string r = "";
+        string y = x.ToString().Replace("-", "");
+        for (int i = y.Length - 1; i >= 0; i--) {
+            r += y.Substring(i, 1);
+        }
+        if (x < 0)
+            r = "-" + r;
+        try{
+            result = int.Parse(r);
+        }
+        catch
+        {
+            result = 0;
+        }
+        return result;
+    }
+}
