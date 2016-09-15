@@ -1,0 +1,15 @@
+public class Solution {
+    public char FindTheDifference(string s, string t) {
+        int s1 = 0;
+        int t1 = 0;
+        foreach (char i in s)
+        {
+            s1 += Convert.ToInt32(i);
+        }
+        foreach (char i in t)
+        {
+            t1 += Convert.ToInt32(i);
+        }
+        return Convert.ToChar(t1-s1);
+    }
+}
