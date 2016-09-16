@@ -1,0 +1,16 @@
+public class Solution {
+    public int LengthOfLastWord(string s) {
+        int result = 0;
+        s = s.Trim();
+        if (s.IndexOf(' ') != -1)
+        {
+            result = s.Split(' ')[s.Split(' ').Length - 1].Length;
+        } 
+        else
+        {
+            if (s != null && s != "")
+                result = s.Length;
+        }
+        return result;
+    }
+}
