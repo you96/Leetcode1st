@@ -1,0 +1,24 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode InvertTree(TreeNode root) {
+        Invert(root);
+        return root;
+    }
+    public void Invert(TreeNode tn) {
+        if (tn != null) {
+            TreeNode temp = tn.right;
+            tn.right = tn.left;
+            tn.left = temp;
+            Invert(tn.right);
+            Invert(tn.left);
+        }
+    }
+}
